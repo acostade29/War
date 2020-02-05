@@ -1,23 +1,23 @@
-# **Project Title**
+# **"War"**
 
-### Date: 1/1/2020
+### Date: 2/6/2020
 
 #### By: Michael Lackey
 ***
 
 ### ***Description***
 
->  ##### A brief description of the project.
+>  ##### A rendition of "War" the card game, where the highest card wins.
 ***
 
 ### ***Screenshots***
-> ![Rough Wireframe](https://photos.app.goo.gl/ZqLc83C69VxQrvWr5)
+> ![Rough Wireframe](images/wireframe.jpg)
 > ![Alt Text](url)
 ***
 
 ### ***Technologies Used***
 
->  ##### List of the technologies used, e.g., JavaScript, HTML, CSS...
+>  ##### JavaScript, HTML, CSS
 ***
 
 ### ***Getting Started***
