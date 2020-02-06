@@ -12,7 +12,9 @@
 
 ### ***Screenshots***
 > ![Rough Wireframe](images/wireframe.jpg)
-> ![Alt Text](url)
+> ###### Rough Wireframe
+> ![Pseudocode](images/pseudocode.jpg)
+> ###### Pseudocode
 ***
 
 ### ***Technologies Used***
