@@ -1,30 +1,31 @@
 # **"War"**
 
-### Date: 2/6/2020
+### Date: 2/14/2020
 
 #### By: Michael Lackey
 ***
 
 ### ***Description***
 
->  ##### A rendition of "War" the card game, where the highest card wins.
-***
-
-### ***Screenshots***
-> ###### Rough Wireframe
-> ![Rough Wireframe](images/wireframe.jpg)
-> ###### Pseudocode
-> ![Pseudocode](images/pseudocode.jpg)
+>  ##### A rendition of "War", the card game, where the highest card wins.
 ***
 
 ### ***Technologies Used***
 
->  ##### JavaScript, HTML, CSS
+>  ##### JavaScript, HTML, CSS, jQuery
 ***
 
 ### ***Getting Started***
 
->  ##### In this section include the link to your project and any instructions you deem important.
+>  ##### The project can be viewed [here](https://mlackey9601.github.io/War/).
+***
+
+### ***Screenshots***
+
+> ###### Rough Wireframe
+> ![Rough Wireframe](imgs/wireframe.jpg)
+> ###### Pseudocode
+> ![Pseudocode](imgs/pseudocode.jpg)
 ***
 
 ### ***User Experience***
@@ -48,9 +49,9 @@
 
 ### ***Credits***
 
-> ##### Credit: url
+> ##### Credit: [Description](url)
 >
-> ##### Credit: url
+> ##### Credit: [Description](url)
 >  
-> ##### Credit: url
+> ##### Credit: [Description](url)
 ***
