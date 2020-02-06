@@ -11,10 +11,10 @@
 ***
 
 ### ***Screenshots***
-> ![Rough Wireframe](images/wireframe.jpg)
 > ###### Rough Wireframe
-> ![Pseudocode](images/pseudocode.jpg)
+> ![Rough Wireframe](images/wireframe.jpg)
 > ###### Pseudocode
+> ![Pseudocode](images/pseudocode.jpg)
 ***
 
 ### ***Technologies Used***
