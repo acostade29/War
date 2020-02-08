@@ -47,9 +47,12 @@ function dealCards() {
             p2Cards.push(p2Dealt[0]);
         }
     }
-    p1deck.classList.add('back-blue', 'shadow-medium');
-    p2deck.classList.add('back-blue', 'shadow-medium');
-    render();
+    p1deck.classList.replace('outline', 'shadow-medium');
+    p1deck.classList.add('back-blue');
+    p2deck.classList.replace('outline', 'shadow-medium');
+    p2deck.classList.add('back-blue');
+    dealButton.classList.add('hidden');
+    playButton.classList.remove('hidden');
 };
 
 function playCards() {
@@ -65,8 +68,17 @@ function playCards() {
         p2Cards.push(p2Flipped[0]);
         p2flip.classList.replace('outline', p2Flipped);
     }
+    // compareCards();
     render();
 };
+
+// function compareCards() {
+//     if (p1Flipped > p2Flipped) {
+//         console.log(true);
+//     } else {
+//         console.log(false);
+//     }
+// };
 
 function render() {
     // Player 1 card shading
