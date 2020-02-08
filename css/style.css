@@ -36,8 +36,6 @@ body {
     font-size: 26px; }
   .card.xlarge {
     font-size: 42px; }
-  .card.shadow-none {
-    border: 0; }
   .card.shadow-light {
     box-shadow: 1px 1px 2px 0 rgba(41, 41, 41, 0.75); }
   .card.shadow-medium {
