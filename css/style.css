@@ -44,9 +44,11 @@ body {
     box-shadow: 2px 2px 3px 0 rgba(41, 41, 41, 0.75); }
   .card.shadow-dark {
     box-shadow: 3px 3px 4px 0 rgba(41, 41, 41, 0.75); }
+  .card.shadow-full {
+    box-shadow: 4px 4px 5px 0 rgba(41, 41, 41, 0.75); }
   .card.outline {
     background-image: none;
-    background-color: rgba(195, 195, 195, 0.5);
+    background-color: rgba(195, 195, 195, 0.75);
     border: 0.05em solid rgb(18,34,99); }
 
 .card.diamonds.A,
