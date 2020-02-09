@@ -48,9 +48,9 @@ function dealCards() {
         }
     }
     p1deck.classList.replace('outline', 'shadow-medium');
-    p1deck.classList.add('back-blue');
+    p1deck.classList.add('back-ship');
     p2deck.classList.replace('outline', 'shadow-medium');
-    p2deck.classList.add('back-blue');
+    p2deck.classList.add('back-ship');
     dealButton.classList.add('hidden');
     playButton.classList.remove('hidden');
 };
@@ -72,23 +72,23 @@ function playCards() {
     render();
 };
 
-// function compareCards() {
-//     if (p1Flipped > p2Flipped) {
-//         console.log(true);
-//     } else {
-//         console.log(false);
-//     }
-// };
+function compareCards() {
+    if (p1Flipped[0] > p2Flipped[0]) {
+        console.log(true);
+    } else {
+        console.log(false);
+    }
+};
 
 function render() {
     // Player 1 card shading
     if (p1Cards.length === 0) {
-        p1deck.classList.replace('back-blue', 'outline');
+        p1deck.classList.replace('back-skull', 'outline');
     }
     if (p1Cards.length > 13) {
         p1deck.classList.replace('outline', 'shadow-light');
     }
-    if (p1Cards.length >= 26) {
+    if (p1Cards.length > 26) {
         p1deck.classList.replace('shadow-light', 'shadow-medium');
     }
     if (p1Cards.length > 39) {
@@ -99,12 +99,12 @@ function render() {
     }
     // Player 2 card shading
     if (p2Cards.length === 0) {
-        p2deck.classList.replace('back-blue', 'outline');
+        p2deck.classList.replace('back-skull', 'outline');
     }
     if (p2Cards.length > 13) {
         p2deck.classList.replace('outline', 'shadow-light');
     }
-    if (p2Cards.length >= 26) {
+    if (p2Cards.length > 26) {
         p2deck.classList.replace('shadow-light', 'shadow-medium');
     }
     if (p2Cards.length > 39) {
@@ -114,3 +114,13 @@ function render() {
         p2deck.classList.replace('shadow-medium', 'shadow-full');
     }
 };
+
+
+/*----- TO DO -----*/
+// How to compare card values?
+// Once compared, pushing them to the correct players deck.
+// If tied, revealing the hidden war section.
+// Burning 3 cards, flipping a 4th.
+// Then comparing the new two cards.
+// Once compared, pushing ALL of the played cards to the correct players deck.
+// Then rehiding the hidden war section.
