@@ -48,9 +48,9 @@ function dealCards() {
         }
     }
     p1deck.classList.replace('outline', 'shadow-medium');
-    p1deck.classList.add('back-ship');
+    p1deck.classList.add('back-roger');
     p2deck.classList.replace('outline', 'shadow-medium');
-    p2deck.classList.add('back-ship');
+    p2deck.classList.add('back-roger');
     dealButton.classList.add('hidden');
     playButton.classList.remove('hidden');
 };
@@ -68,22 +68,24 @@ function playCards() {
         p2Cards.push(p2Flipped[0]);
         p2flip.classList.replace('outline', p2Flipped);
     }
-    // compareCards();
+    compareCards();
     render();
 };
 
 function compareCards() {
     if (p1Flipped[0] > p2Flipped[0]) {
         console.log(true);
-    } else {
+    } else if (p1Flipped[0] < p2Flipped[0]) {
         console.log(false);
+    } else {
+        console.log("war");
     }
 };
 
 function render() {
     // Player 1 card shading
     if (p1Cards.length === 0) {
-        p1deck.classList.replace('back-skull', 'outline');
+        p1deck.classList.replace('back-roger', 'outline');
     }
     if (p1Cards.length > 13) {
         p1deck.classList.replace('outline', 'shadow-light');
@@ -99,7 +101,7 @@ function render() {
     }
     // Player 2 card shading
     if (p2Cards.length === 0) {
-        p2deck.classList.replace('back-skull', 'outline');
+        p2deck.classList.replace('back-roger', 'outline');
     }
     if (p2Cards.length > 13) {
         p2deck.classList.replace('outline', 'shadow-light');

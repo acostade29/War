@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/backgrounds/blue-felt.jpg");
+  background-image: url("../images/backgrounds/black-felt.png");
   background-size: cover;
 }
 
@@ -15,9 +15,11 @@ body {
   width: 4.0em;
   height: 5.5em;
   /* Add a default background color and border. */
-  background-color: #fff;
+  background-color: rgb(242, 239, 217);
+  border-color: rgb(41, 41, 41);
+  border-style: solid;
+  border-width: 0.015em;
   border-radius: 0.20em;
-  border: 1px solid #c3c3c3;
   /* Scale and set the background settings. */
   background-repeat: no-repeat;
   background-position: center center;
@@ -47,8 +49,8 @@ body {
     box-shadow: 4px 4px 5px 0 rgba(41, 41, 41, 0.75); }
   .card.outline {
     background-image: none;
-    background-color: rgba(195, 195, 195, 0.75);
-    border: 0.05em solid rgb(18,34,99); }
+    background-color: rgba(1, 1, 1, 0); 
+    border: none; }
 
   .card.back {
     background-image: url("../images/backs/blue.svg"); }
@@ -72,12 +74,6 @@ body {
     background-color: rgba(1,1,1,0);
     border: none; }
 
-  .card.back-casino {
-    background-image: url("../images/altbacks/casino.png");
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
   .card.back-celtic {
     background-image: url("../images/altbacks/celtic.png");
     background-size: cover;
@@ -91,7 +87,7 @@ body {
     border: none; }
 
   .card.back-elf {
-    background-image: url("../images/altbacks/elf.jpg");
+    background-image: url("../images/altbacks/elf.png");
     background-size: cover;
     background-color: rgba(1,1,1,0);
     border: none; }
@@ -126,14 +122,8 @@ body {
     background-color: rgba(1,1,1,0);
     border: none; }
 
-  .card.back-lighthouse {
-    background-image: url("../images/altbacks/lighthouse.png");
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
   .card.back-monkey {
-    background-image: url("../images/altbacks/monkey.jpg"); 
+    background-image: url("../images/altbacks/monkey.png"); 
     background-size: cover;
     background-color: rgba(1,1,1,0);
     border: none; }
@@ -144,11 +134,24 @@ body {
     background-color: rgba(1,1,1,0);
     border: none; }
 
-  .card.back-ship {
-    background-image: url("../images/altbacks/ship.png");
+  .card.back-rabbit {
+    background-image: url("../images/altbacks/pirate.png");
     background-size: cover;
     background-color: rgba(1,1,1,0);
     border: none; }
+
+  .card.back-roger {
+    background-image: url("../images/altbacks/roger.png");
+    background-size: cover;
+    background-color: rgba(1,1,1,0);
+    border: none; }
+
+  .card.back-ship {
+    background-image: url("../images/altbacks/ship.png");
+    background-size: cover;
+    border-color: rgb(48,39,43);
+    border-style: solid;
+    border-width: 0.015em; }
 
   .card.back-silverback {
     background-image: url("../images/altbacks/silverback.png");
@@ -163,7 +166,13 @@ body {
     border: none; }
 
   .card.back-tree {
-    background-image: url("../images/altbacks/tree.jpg");
+    background-image: url("../images/altbacks/tree.png");
+    background-size: cover;
+    background-color: rgba(1,1,1,0);
+    border: none; }
+
+  .card.back-tree-black {
+    background-image: url("../images/altbacks/tree-black.png");
     background-size: cover;
     background-color: rgba(1,1,1,0);
     border: none; }

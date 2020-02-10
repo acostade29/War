@@ -52,10 +52,10 @@
 ***
 
 ### ***Credits***
+  
+##### Credit: Black Felt Background - [hipwallpaper.com](https://hipwallpaper.com/)
 
-##### Credit: [Blue Felt Background](https://hipwallpaper.com/view/ldaT6r)
-  
-##### Credit: [Description](url)
-  
-##### Credit: [Description](url)
+##### Credit: Elf Card Back - [Dustin Panzino, Inkwell Illustrations](https://inkwellillustrations.com)
+
+##### Credit: Pirate Card Back - [vippng.com](http://vippng.com)
 ***
