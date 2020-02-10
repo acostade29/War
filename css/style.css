@@ -15,7 +15,7 @@ body {
   width: 4.0em;
   height: 5.5em;
   /* Add a default background color and border. */
-  background-color: rgb(242, 239, 217);
+  background-color: rgb(226, 222, 212);
   border-color: rgb(41, 41, 41);
   border-style: solid;
   border-width: 0.015em;
@@ -62,44 +62,8 @@ body {
     background-image: url("../images/backs/red.svg");
     background-size: cover; }
 
-  .card.back-bicycle {
-    background-image: url("../images/altbacks/bicycle.png");
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
-  .card.back-brkn-skull {
-    background-image: url("../images/altbacks/brkn-skull.png");
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
-  .card.back-celtic {
-    background-image: url("../images/altbacks/celtic.png");
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
-  .card.back-cthulu {
-    background-image: url("../images/altbacks/cthulu.png");
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
   .card.back-elf {
     background-image: url("../images/altbacks/elf.png");
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
-  .card.back-fantasy {
-    background-image: url("../images/altbacks/fantasy.png");
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
-  .card.back-future {
-    background-image: url("../images/altbacks/future.png");
     background-size: cover;
     background-color: rgba(1,1,1,0);
     border: none; }
@@ -110,31 +74,7 @@ body {
     background-color: rgba(1,1,1,0);
     border: none; }
 
-  .card.back-knight {
-    background-image: url("../images/altbacks/knight.png");
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
-  .card.back-light-blue {
-    background-image: url("../images/altbacks/light-blue.png");
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
-  .card.back-monkey {
-    background-image: url("../images/altbacks/monkey.png"); 
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
   .card.back-pirate {
-    background-image: url("../images/altbacks/pirate.png");
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
-  .card.back-rabbit {
     background-image: url("../images/altbacks/pirate.png");
     background-size: cover;
     background-color: rgba(1,1,1,0);
@@ -153,20 +93,8 @@ body {
     border-style: solid;
     border-width: 0.015em; }
 
-  .card.back-silverback {
-    background-image: url("../images/altbacks/silverback.png");
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
   .card.back-skull {
     background-image: url("../images/altbacks/skull.png");
-    background-size: cover;
-    background-color: rgba(1,1,1,0);
-    border: none; }
-
-  .card.back-tree {
-    background-image: url("../images/altbacks/tree.png");
     background-size: cover;
     background-color: rgba(1,1,1,0);
     border: none; }
@@ -176,9 +104,9 @@ body {
     background-size: cover;
     background-color: rgba(1,1,1,0);
     border: none; }
-
-  .card.back-weapons {
-    background-image: url("../images/altbacks/weapons.png");
+    
+  .card.back-tree-white {
+    background-image: url("../images/altbacks/tree-white.png");
     background-size: cover;
     background-color: rgba(1,1,1,0);
     border: none; }
