@@ -16,11 +16,13 @@ const p1flip = document.getElementById('p1flip');
 const p2flip = document.getElementById('p2flip');
 const dealButton = document.getElementById('deal-button');
 const playButton = document.getElementById('play-button');
+const clearButton = document.getElementById('clear-button');
 
 
 /*----- event listeners -----*/
 dealButton.addEventListener('click', dealCards);
 playButton.addEventListener('click', playCards);
+clearButton.addEventListener('click', sortWinnings);
 
 
 /*----- functions -----*/
@@ -57,29 +59,43 @@ function dealCards() {
 
 function playCards() {
     if (p1Cards.length) {
-        p1RemovedCard = p1Flipped;
         p1Flipped = p1Cards.splice(0, 1);
         p1Cards.push(p1Flipped[0]);
         p1flip.classList.replace('outline', p1Flipped);
     }
     if (p2Cards.length) {
-        p2RemovedCard = p2Flipped;
         p2Flipped = p2Cards.splice(0, 1);
         p2Cards.push(p2Flipped[0]);
         p2flip.classList.replace('outline', p2Flipped);
     }
     compareCards();
     render();
+    playButton.classList.add('hidden');
+    clearButton.classList.remove('hidden');
 };
 
 function compareCards() {
-    if (p1Flipped[0] > p2Flipped[0]) {
-        console.log(true);
-    } else if (p1Flipped[0] < p2Flipped[0]) {
-        console.log(false);
+    if (lookUp(p1Flipped) > lookUp(p2Flipped)) {
+        console.log('Player 1 Win');
+        p1Cards.push(`${p2Flipped}`);
+        p2Cards.splice(p2Cards.length - 1, 1);
+    } else if (lookUp(p1Flipped) < lookUp(p2Flipped)) {
+        console.log('Player 2 Win');
+        p2Cards.push(`${p1Flipped}`);
+        p1Cards.splice(p1Cards.length - 1, 1);
     } else {
-        console.log("war");
+        console.log("War");
+        
     }
+};
+
+function sortWinnings() {
+    p1flip.classList.replace(p1Flipped, 'outline');
+    p1Flipped.pop();
+    p2flip.classList.replace(p2Flipped, 'outline');
+    p2Flipped.pop();
+    playButton.classList.remove('hidden');
+    clearButton.classList.add('hidden');
 };
 
 function render() {
@@ -117,9 +133,37 @@ function render() {
     }
 };
 
+function lookUp(x) {
+    if (`${x}` === 'dA' || `${x}` === 'cA' || `${x}` === 'sA' || `${x}` === 'hA') {
+        return 14;
+    } else if (`${x}` === 'dK' || `${x}` === 'cK' || `${x}` === 'sK' || `${x}` === 'hK') {
+        return 13;
+    } else if (`${x}` === 'dQ' || `${x}` === 'cQ' || `${x}` === 'sQ' || `${x}` === 'hQ') {
+        return 12;
+    } else if (`${x}` === 'dJ' || `${x}` === 'cJ' || `${x}` === 'sJ' || `${x}` === 'hJ') {
+        return 11;
+    } else if (`${x}` === 'd10' || `${x}` === 'c10' || `${x}` === 's10' || `${x}` === 'h10') {
+        return 10;
+    } else if (`${x}` === 'd09' || `${x}` === 'c09' || `${x}` === 's09' || `${x}` === 'h09') {
+        return 9;
+    } else if (`${x}` === 'd08' || `${x}` === 'c08' || `${x}` === 's08' || `${x}` === 'h08') {
+        return 8;
+    } else if (`${x}` === 'd07' || `${x}` === 'c07' || `${x}` === 's07' || `${x}` === 'h07') {
+        return 7;
+    } else if (`${x}` === 'd06' || `${x}` === 'c06' || `${x}` === 's06' || `${x}` === 'h06') {
+        return 6;
+    } else if (`${x}` === 'd05' || `${x}` === 'c05' || `${x}` === 's05' || `${x}` === 'h05') {
+        return 5;
+    } else if (`${x}` === 'd04' || `${x}` === 'c04' || `${x}` === 's04' || `${x}` === 'h04') {
+        return 4;
+    } else if (`${x}` === 'd03' || `${x}` === 'c03' || `${x}` === 's03' || `${x}` === 'h03') {
+        return 3;
+    } else {
+        return 2;
+    }
+};
 
 /*----- TO DO -----*/
-// How to compare card values?
 // Once compared, pushing them to the correct players deck.
 // If tied, revealing the hidden war section.
 // Burning 3 cards, flipping a 4th.
