@@ -24,7 +24,6 @@ const p1burn = document.getElementById('p1burn');
 const p2burn = document.getElementById('p2burn');
 const war1 = document.getElementById('war1');
 const war2 = document.getElementById('war2');
-const war3 = document.getElementById('war3');
 const dealButton = document.getElementById('deal-button');
 const playButton = document.getElementById('play-button');
 const clearButton = document.getElementById('clear-button');
@@ -242,3 +241,9 @@ function lookUp(x) {
         return 2;
     }
 };
+
+// TO DO
+// END GAME LOGIC
+// timeout logic to delay card dealing, flipping
+// card flip animations
+// card flip sounds

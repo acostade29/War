@@ -6,6 +6,12 @@ body {
   align-items: center;
 }
 
+#wartitle {
+  font-family: ;
+  color: rgb(226, 222, 212);
+  
+}
+
 @charset "UTF-8";
 .card {
   box-sizing: border-box;
