@@ -22,6 +22,7 @@ const p1warflip = document.getElementById('p1warflip');
 const p2warflip = document.getElementById('p2warflip');
 const p1burn = document.getElementById('p1burn');
 const p2burn = document.getElementById('p2burn');
+const warTitle = document.getElementById('wartitle');
 const war1 = document.getElementById('war1');
 const war2 = document.getElementById('war2');
 const dealButton = document.getElementById('deal-button');
@@ -129,10 +130,12 @@ function clearWar() {
     p2Burned.pop();
     playButton.classList.remove('hidden');
     clearWarButton.classList.add('hidden');
+    warTitle.classList.add('hidden');
 };
 
 function war() {
     war1.classList.remove('hidden');
+    warTitle.classList.remove('hidden');
     p1burn.classList.add('back-roger', 'W');
     p2burn.classList.add('back-roger', 'W');
     if (p1Cards.length) {

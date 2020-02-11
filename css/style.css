@@ -6,10 +6,18 @@ body {
   align-items: center;
 }
 
+@font-face {
+  font-family: 'treasure_map_deadhandregular';
+  src: url('../css/fonts/treasuremapdeadhand-yla3-webfont.woff2') format('woff2'),
+       url('../css/fonts/treasuremapdeadhand-yla3-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 #wartitle {
-  font-family: ;
+  font-family: 'treasure_map_deadhandregular';
   color: rgb(226, 222, 212);
-  
+  font-size: 75px;
 }
 
 @charset "UTF-8";
