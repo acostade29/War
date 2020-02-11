@@ -53,11 +53,15 @@
 
 ### ***Credits***
   
-##### Credit: Black Felt Background - [hipwallpaper.com](https://hipwallpaper.com/)
+##### Black Felt Background - [hipwallpaper.com](https://hipwallpaper.com/)
 
-<!-- ##### Credit: Elf Card Back - [Dustin Panzino, Inkwell Illustrations](https://inkwellillustrations.com) -->
+<!-- ##### Elf Card Back - [Dustin Panzino, Inkwell Illustrations](https://inkwellillustrations.com) -->
 
-##### Credit: Pirate Card Back - [vippng.com](http://vippng.com)
+##### Pirate Card Back - [vippng.com](http://vippng.com)
 
-##### Credit: Pirate Font - [free-fonts.com](https://www.free-fonts.com/)
+##### Pirate Font - [free-fonts.com](https://www.free-fonts.com/)
+
+##### Animations - [Animate.css](https://daneden.github.io/animate.css/)
+
+##### Button Styling - [Bootstrap](https://getbootstrap.com/)
 ***
