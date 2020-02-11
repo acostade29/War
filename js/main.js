@@ -71,11 +71,11 @@ function dealCards() {
 };
 
 function playCards() {
-    if (p1Cards.length) {
+    if (p1Cards.length || p2Cards.length) {
         p1Flipped = p1Cards.splice(0, 1);
         p1flip.classList.replace('outline', p1Flipped);
     }
-    if (p2Cards.length) {
+    if (p2Cards.length || p2Cards.length) {
         p2Flipped = p2Cards.splice(0, 1);
         p2flip.classList.replace('outline', p2Flipped);
     }
@@ -90,12 +90,12 @@ function compareCards() {
         console.log('Player 1 Win');
         p1Cards.push(`${p1Flipped}`);
         p1Cards.push(`${p2Flipped}`);
-        p2Cards.splice(p2Cards.length - 1, 1);
+        p2Cards.splice(p2Cards.length, 1);
     } else if (lookUp(p1Flipped) < lookUp(p2Flipped)) {
         console.log('Player 2 Win');
-        p2Cards.push(`${p1Flipped}`);
         p2Cards.push(`${p2Flipped}`);
-        p1Cards.splice(p1Cards.length - 1, 1);
+        p2Cards.push(`${p1Flipped}`);
+        p1Cards.splice(p1Cards.length, 1);
     } else {
         console.log("War");
         war();
@@ -160,23 +160,24 @@ function war() {
 function compareWarCards() {
     if (lookUp(p1War) > lookUp(p2War)) {
         console.log('Player 1 Win');
-        p1Cards.push(`${p2Burned[2]}`, `${p2Burned[1]}`, `${p2Burned[0]}`);
         p1Cards.push(`${p1Burned[2]}`, `${p1Burned[1]}`, `${p1Burned[0]}`);
         p1Cards.push(`${p1Flipped[0]}`);
+        p1Cards.push(`${p2Burned[2]}`, `${p2Burned[1]}`, `${p2Burned[0]}`);
         p1Cards.push(`${p2Flipped[0]}`);
         p1Cards.push(`${p2War[0]}`);
         p2Cards.splice(p2Cards.length - 1, 1);
     } else if (lookUp(p1War) < lookUp(p2War)) {
         console.log('Player 2 Win');
-        p2Cards.push(`${p1Burned[2]}`, `${p1Burned[1]}`, `${p1Burned[0]}`);
         p2Cards.push(`${p2Burned[2]}`, `${p2Burned[1]}`, `${p2Burned[0]}`);
-        p2Cards.push(`${p1Flipped[0]}`);
         p2Cards.push(`${p2Flipped[0]}`);
+        p2Cards.push(`${p1Burned[2]}`, `${p1Burned[1]}`, `${p1Burned[0]}`);
+        p2Cards.push(`${p1Flipped[0]}`);
         p2Cards.push(`${p1War[0]}`);
         p1Cards.splice(p1Cards.length - 1, 1);
     } else {
         console.log("War Again");
         // war();
+        // set up conditions for a possible 2nd conseecutive war?
     }
 };
 
