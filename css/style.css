@@ -16,7 +16,7 @@ body {
 
 #wartitle {
   font-family: 'treasure_map_deadhandregular';
-  color: rgb(226, 222, 212);
+  color: rgb(164, 48, 48);
   font-size: 75px;
 }
 
@@ -58,13 +58,13 @@ body {
   .card.xlarge {
     font-size: 42px; }
   .card.shadow-light {
-    box-shadow: 5px 5px 6px 0 rgba(255, 0, 0, 0.75); }
+    box-shadow: 5px 5px 6px 0 rgba(41, 41, 41, 0.75); }
   .card.shadow-medium {
-    box-shadow: 6px 6px 7px 0 rgba(255, 136, 0, 0.75); }
+    box-shadow: 6px 6px 7px 0 rgba(41, 41, 41, 0.75); }
   .card.shadow-dark {
-    box-shadow: 7px 7px 8px 0 rgba(255, 238, 0, 0.75); }
+    box-shadow: 7px 7px 8px 0 rgba(41, 41, 41, 0.75); }
   .card.shadow-full {
-    box-shadow: 8px 8px 9px 0 rgba(43, 255, 0, 0.75); }
+    box-shadow: 8px 8px 9px 0 rgba(41, 41, 41, 0.75); }
   .card.outline {
     background-image: none;
     background-color: rgba(1, 1, 1, 0); 
@@ -388,15 +388,6 @@ body {
   .card.c02,
   .card.♣02 {
     background-image: url("../images/clubs/clubs-r02.svg"); }
-
-  .card.joker {
-    background-image: url("../images/jokers/joker.svg"); }
-
-  .card.joker-black {
-    background-image: url("../images/jokers/joker-black.svg"); }
-
-  .card.joker-red {
-    background-image: url("../images/jokers/joker-red.svg"); }
 
   /* Re-orients the cards for different directions. While
     they are symmetric, it's still important to orient

@@ -14,6 +14,7 @@ let p2Burned = [];
 
 
 /*----- cached element references -----*/
+const cardBack = 'back-roger';
 const p1deck = document.getElementById('p1deck');
 const p2deck = document.getElementById('p2deck');
 const p1flip = document.getElementById('p1flip');
@@ -28,14 +29,13 @@ const war2 = document.getElementById('war2');
 const dealButton = document.getElementById('deal-button');
 const playButton = document.getElementById('play-button');
 const clearButton = document.getElementById('clear-button');
-const cardBack = 'back-roger';
+const againButton = document.getElementById('again-button');
 
 
 /*----- event listeners -----*/
 dealButton.addEventListener('click', dealCards);
 playButton.addEventListener('click', playCards);
 clearButton.addEventListener('click', clear);
-
 
 /*----- functions -----*/
 function shuffle() {
@@ -61,9 +61,7 @@ function dealCards() {
             p2Cards.push(p2Dealt[0]);
         }
     }
-    p1deck.classList.replace('outline', 'shadow-medium');
     p1deck.classList.add(cardBack);
-    p2deck.classList.replace('outline', 'shadow-medium');
     p2deck.classList.add(cardBack);
     dealButton.classList.add('hidden');
     playButton.classList.remove('hidden');
@@ -71,37 +69,46 @@ function dealCards() {
 };
 
 function playCards() {
-    if (p1Cards.length || p2Cards.length) {
+    if (p1Cards.length > 0 && p2Cards.length > 0) {
         p1Flipped = p1Cards.splice(0, 1);
         p1flip.classList.replace('outline', p1Flipped);
     }
-    if (p2Cards.length || p2Cards.length) {
+    if (p2Cards.length > 0 && p2Cards.length > 0) {
         p2Flipped = p2Cards.splice(0, 1);
         p2flip.classList.replace('outline', p2Flipped);
     }
     playButton.classList.add('hidden');
     clearButton.classList.remove('hidden');
     compareCards();
-    render();
+};
+
+function checkWin() {
+    if (p1Cards.length === 0) {
+        warTitle.classList.remove('hidden');
+        warTitle.textContent = "Player Two Wins!"
+        clearButton.classList.add('hidden');
+        againButton.classList.remove('hidden');
+    } else if (p2Cards.length === 0) {
+        warTitle.classList.remove('hidden');
+        warTitle.textContent = "Player One Wins!"
+        clearButton.classList.add('hidden');
+        againButton.classList.remove('hidden');
+    };
 };
 
 function compareCards() {
     if (lookUp(p1Flipped) > lookUp(p2Flipped)) {
-        console.log('Player 1 Win');
         p1Cards.push(`${p1Flipped}`);
         p1Cards.push(`${p2Flipped}`);
         p2Cards.splice(p2Cards.length, 1);
     } else if (lookUp(p1Flipped) < lookUp(p2Flipped)) {
-        console.log('Player 2 Win');
         p2Cards.push(`${p2Flipped}`);
         p2Cards.push(`${p1Flipped}`);
         p1Cards.splice(p1Cards.length, 1);
     } else {
-        console.log("War");
         war();
     }
-    console.log(p1Cards);
-    console.log(p2Cards);
+    checkWin();
 };
 
 function war() {
@@ -114,12 +121,14 @@ function war() {
         p1War = p1Cards.splice(0, 1);
         p1Cards.push(p1War[0]);
         p1warflip.classList.replace('outline', p1War);
+        checkWin();
     }
     if (p2Cards.length) {
         p2Burned = p2Cards.splice(0, 3);
         p2War = p2Cards.splice(0, 1);
         p2Cards.push(p2War[0]);
         p2warflip.classList.replace('outline', p2War);
+        checkWin();
     }
     playButton.classList.add('hidden');
     compareWarCards();
@@ -146,6 +155,7 @@ function compareWarCards() {
         // war();
         // set up conditions for a possible 2nd conseecutive war?
     }
+    checkWin();
 };
 
 function clear() {
@@ -179,37 +189,50 @@ function clear() {
 
 function render() {
     // Player 1 card shading
-    if (p1Cards.length === 0) {
+    if (p1Cards === 0) {
         p1deck.classList.replace(cardBack, 'outline');
-    }
-    if (p1Cards.length > 13) {
-        p1deck.classList.replace('outline', 'shadow-light');
-    }
-    if (p1Cards.length > 26) {
-        p1deck.classList.replace('shadow-light', 'shadow-medium');
-    }
-    if (p1Cards.length > 39) {
-        p1deck.classList.replace('shadow-medium', 'shadow-dark');
-    }
-    if (p1Cards.length > 51) {
-        p1deck.classList.replace('shadow-medium', 'shadow-full');
+    } else if (p1Cards.length > 0 && p1Cards.length <= 13) {
+        p1deck.classList.replace(cardBack, 'outline');
+        p1deck.classList.remove('shadow-light');
+    } else if (p1Cards.length > 13 && p1Cards.length <= 26) {
+        p1deck.classList.add('shadow-light');
+        p1deck.classList.remove('shadow-medium');
+        p1deck.classList.replace('outline', cardBack);
+    } else if (p1Cards.length > 26 && p1Cards.length <= 39) {
+        p1deck.classList.add('shadow-medium');
+        p1deck.classList.remove('shadow-light');
+        p1deck.classList.remove('shadow-dark');
+    } else if (p1Cards.length > 39 && p1Cards.length <= 51) {
+        p1deck.classList.add('shadow-dark');
+        p1deck.classList.remove('shadow-medium');
+        p1deck.classList.remove('shadow-full');
+    } else if (p1Cards.length === 52) {
+        p1deck.classList.add('shadow-full');
+        p1deck.classList.remove('shadow-dark');
     }
     // Player 2 card shading
-    if (p2Cards.length === 0) {
+    if (p2Cards === 0) {
         p2deck.classList.replace(cardBack, 'outline');
-    }
-    if (p2Cards.length > 13) {
-        p2deck.classList.replace('outline', 'shadow-light');
-    }
-    if (p2Cards.length > 26) {
-        p2deck.classList.replace('shadow-light', 'shadow-medium');
-    }
-    if (p2Cards.length > 39) {
-        p2deck.classList.replace('shadow-medium', 'shadow-dark');
-    }
-    if (p2Cards.length > 51) {
-        p2deck.classList.replace('shadow-medium', 'shadow-full');
-    }
+    } else if (p2Cards.length > 0 && p2Cards.length <= 13) {
+        p2deck.classList.remove('outline');
+        p2deck.classList.add(cardBack);
+        p2deck.classList.remove('shadow-light');
+    } else if (p2Cards.length > 13 && p2Cards.length <= 26) {
+        p2deck.classList.add('shadow-light');
+        p2deck.classList.remove('shadow-medium');
+        p2deck.classList.replace('outline', cardBack);
+    } else if (p2Cards.length > 26 && p2Cards.length <= 39) {
+        p2deck.classList.add('shadow-medium');
+        p2deck.classList.remove('shadow-light');
+        p2deck.classList.remove('shadow-dark');
+    } else if (p2Cards.length > 39 && p2Cards.length <= 51) {
+        p2deck.classList.add('shadow-dark');
+        p2deck.classList.remove('shadow-medium');
+        p2deck.classList.remove('shadow-full');
+    } else if (p2Cards.length === 52) {
+        p2deck.classList.add('shadow-full');
+        p2deck.classList.remove('shadow-dark');
+    };
 };
 
 function lookUp(x) {
@@ -243,12 +266,11 @@ function lookUp(x) {
 };
 
 // TO DO
-// END GAME LOGIC
 // timeout logic to delay card dealing, flipping
 // card flip animations
 // card flip sounds
 
 // CURRENT ISSUES
-// Cards are not adding up correctly over the course of the game
+// Cards are not adding up correctly over the course of the game due to DOUBLE war occuring.
 // Render is not working correctly adding/removing shadows
 // Shadows currently shaded in bright colors and in increased sizes for visual aid
