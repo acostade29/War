@@ -11,6 +11,7 @@ let p1War = [];
 let p2War = [];
 let p1Burned = [];
 let p2Burned = [];
+let winHand;
 
 
 /*----- cached element references -----*/
@@ -37,6 +38,7 @@ dealButton.addEventListener('click', dealCards);
 playButton.addEventListener('click', playCards);
 clearButton.addEventListener('click', clear);
 
+
 /*----- functions -----*/
 function shuffle() {
     let idx = cards.length, temp, rndIdx;
@@ -61,8 +63,8 @@ function dealCards() {
             p2Cards.push(p2Dealt[0]);
         }
     }
-    p1deck.classList.add(cardBack);
-    p2deck.classList.add(cardBack);
+    p1deck.classList.add(cardBack, 'animated', 'bounce');
+    p2deck.classList.add(cardBack, 'animated', 'bounce');
     dealButton.classList.add('hidden');
     playButton.classList.remove('hidden');
     render();
@@ -72,10 +74,12 @@ function playCards() {
     if (p1Cards.length > 0 && p2Cards.length > 0) {
         p1Flipped = p1Cards.splice(0, 1);
         p1flip.classList.replace('outline', p1Flipped);
+        p1flip.classList.add('animated', 'slideInLeft');
     }
     if (p2Cards.length > 0 && p2Cards.length > 0) {
         p2Flipped = p2Cards.splice(0, 1);
         p2flip.classList.replace('outline', p2Flipped);
+        p2flip.classList.add('animated', 'slideInRight');
     }
     playButton.classList.add('hidden');
     clearButton.classList.remove('hidden');
@@ -93,6 +97,7 @@ function checkWin() {
         warTitle.textContent = "Player One Wins!"
         clearButton.classList.add('hidden');
         againButton.classList.remove('hidden');
+        againButton.classList.add('animated', 'rubberBand');
     };
 };
 
@@ -101,10 +106,12 @@ function compareCards() {
         p1Cards.push(`${p1Flipped}`);
         p1Cards.push(`${p2Flipped}`);
         p2Cards.splice(p2Cards.length, 1);
+        winHand = 1;
     } else if (lookUp(p1Flipped) < lookUp(p2Flipped)) {
         p2Cards.push(`${p2Flipped}`);
         p2Cards.push(`${p1Flipped}`);
         p1Cards.splice(p1Cards.length, 1);
+        winHand = 2;
     } else {
         war();
     }
@@ -114,13 +121,15 @@ function compareCards() {
 function war() {
     war1.classList.remove('hidden');
     warTitle.classList.remove('hidden');
-    p1burn.classList.add(cardBack, 'W');
-    p2burn.classList.add(cardBack, 'W');
+    warTitle.classList.add('animated', 'heartBeat');
+    p1burn.classList.add(cardBack, 'W', 'animated', 'slideInDown');
+    p2burn.classList.add(cardBack, 'W', 'animated', 'slideInDown');
     if (p1Cards.length) {
         p1Burned = p1Cards.splice(0, 3);
         p1War = p1Cards.splice(0, 1);
         p1Cards.push(p1War[0]);
         p1warflip.classList.replace('outline', p1War);
+        p1warflip.classList.add('animated', 'slideInLeft');
         checkWin();
     }
     if (p2Cards.length) {
@@ -128,12 +137,13 @@ function war() {
         p2War = p2Cards.splice(0, 1);
         p2Cards.push(p2War[0]);
         p2warflip.classList.replace('outline', p2War);
+        p2warflip.classList.add('animated', 'slideInRight');
         checkWin();
     }
     playButton.classList.add('hidden');
     compareWarCards();
     render();
-}
+};
 
 function compareWarCards() {
     if (lookUp(p1War) > lookUp(p2War)) {
@@ -143,6 +153,7 @@ function compareWarCards() {
         p1Cards.push(`${p2Flipped[0]}`);
         p1Cards.push(`${p2War[0]}`);
         p2Cards.splice(p2Cards.length - 1, 1);
+        winHand = 1;
     } else if (lookUp(p1War) < lookUp(p2War)) {
         p2Cards.push(`${p2Burned[2]}`, `${p2Burned[1]}`, `${p2Burned[0]}`);
         p2Cards.push(`${p2Flipped[0]}`);
@@ -150,6 +161,7 @@ function compareWarCards() {
         p2Cards.push(`${p1Flipped[0]}`);
         p2Cards.push(`${p1War[0]}`);
         p1Cards.splice(p1Cards.length - 1, 1);
+        winHand = 2;
     } else {
         console.log("War Again");
         // war();
@@ -185,6 +197,13 @@ function clear() {
         warTitle.classList.add('hidden');
         render();
     }
+    p1flip.classList.remove('slideInLeft');
+    p2flip.classList.remove('slideInRight');
+    p1burn.classList.remove('slideInDown');
+    p2burn.classList.remove('slideInDown');
+    p1warflip.classList.remove('slideInLeft');
+    p2warflip.classList.remove('slideInRight');
+    warTitle.classList.remove('heartBeat');
 };
 
 function render() {
@@ -267,10 +286,7 @@ function lookUp(x) {
 
 // TO DO
 // timeout logic to delay card dealing, flipping
-// card flip animations
 // card flip sounds
 
 // CURRENT ISSUES
 // Cards are not adding up correctly over the course of the game due to DOUBLE war occuring.
-// Render is not working correctly adding/removing shadows
-// Shadows currently shaded in bright colors and in increased sizes for visual aid
