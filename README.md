@@ -47,7 +47,7 @@
 * ##### ~~Create a 'Play Again' button~~
 * ##### Create a win counter for each player
 * ##### Allow the user to choose their deck image
-* ##### Create a 'card flip' animation
+* ##### ~~Create a 'card flip' animation~~
 * ##### Add 'card flip' sound effects
 ***
 
