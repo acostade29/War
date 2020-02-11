@@ -28,14 +28,13 @@ const war2 = document.getElementById('war2');
 const dealButton = document.getElementById('deal-button');
 const playButton = document.getElementById('play-button');
 const clearButton = document.getElementById('clear-button');
-const clearWarButton = document.getElementById('clear-war-button');
+const cardBack = 'back-roger';
 
 
 /*----- event listeners -----*/
 dealButton.addEventListener('click', dealCards);
 playButton.addEventListener('click', playCards);
 clearButton.addEventListener('click', clear);
-clearWarButton.addEventListener('click', clearWar);
 
 
 /*----- functions -----*/
@@ -63,11 +62,12 @@ function dealCards() {
         }
     }
     p1deck.classList.replace('outline', 'shadow-medium');
-    p1deck.classList.add('back-roger');
+    p1deck.classList.add(cardBack);
     p2deck.classList.replace('outline', 'shadow-medium');
-    p2deck.classList.add('back-roger');
+    p2deck.classList.add(cardBack);
     dealButton.classList.add('hidden');
     playButton.classList.remove('hidden');
+    render();
 };
 
 function playCards() {
@@ -100,44 +100,15 @@ function compareCards() {
         console.log("War");
         war();
     }
-};
-
-function clear() {
-    p1flip.classList.replace(`${p1Flipped}`, 'outline');
-    p2flip.classList.replace(`${p2Flipped}`, 'outline');
-    p1Flipped.pop();
-    p2Flipped.pop();
-    playButton.classList.remove('hidden');
-    clearButton.classList.add('hidden');
-};
-
-function clearWar() {
-    p1flip.classList.replace(`${p1Flipped}`, 'outline');
-    p2flip.classList.replace(`${p2Flipped}`, 'outline');
-    p1warflip.classList.replace(`${p1War}`, 'outline');
-    p2warflip.classList.replace(`${p2War}`, 'outline');
-    p1burn.classList.replace('back-roger', 'outline');
-    p2burn.classList.replace('back-roger', 'outline');
-    p1War.pop();
-    p2War.pop();
-    p1Flipped.pop();
-    p2Flipped.pop();
-    p1Burned.pop();
-    p1Burned.pop();
-    p1Burned.pop();
-    p2Burned.pop();
-    p2Burned.pop();
-    p2Burned.pop();
-    playButton.classList.remove('hidden');
-    clearWarButton.classList.add('hidden');
-    warTitle.classList.add('hidden');
+    console.log(p1Cards);
+    console.log(p2Cards);
 };
 
 function war() {
     war1.classList.remove('hidden');
     warTitle.classList.remove('hidden');
-    p1burn.classList.add('back-roger', 'W');
-    p2burn.classList.add('back-roger', 'W');
+    p1burn.classList.add(cardBack, 'W');
+    p2burn.classList.add(cardBack, 'W');
     if (p1Cards.length) {
         p1Burned = p1Cards.splice(0, 3);
         p1War = p1Cards.splice(0, 1);
@@ -151,15 +122,12 @@ function war() {
         p2warflip.classList.replace('outline', p2War);
     }
     playButton.classList.add('hidden');
-    clearButton.classList.add('hidden');
-    clearWarButton.classList.remove('hidden');
     compareWarCards();
     render();
 }
 
 function compareWarCards() {
     if (lookUp(p1War) > lookUp(p2War)) {
-        console.log('Player 1 Win');
         p1Cards.push(`${p1Burned[2]}`, `${p1Burned[1]}`, `${p1Burned[0]}`);
         p1Cards.push(`${p1Flipped[0]}`);
         p1Cards.push(`${p2Burned[2]}`, `${p2Burned[1]}`, `${p2Burned[0]}`);
@@ -167,7 +135,6 @@ function compareWarCards() {
         p1Cards.push(`${p2War[0]}`);
         p2Cards.splice(p2Cards.length - 1, 1);
     } else if (lookUp(p1War) < lookUp(p2War)) {
-        console.log('Player 2 Win');
         p2Cards.push(`${p2Burned[2]}`, `${p2Burned[1]}`, `${p2Burned[0]}`);
         p2Cards.push(`${p2Flipped[0]}`);
         p2Cards.push(`${p1Burned[2]}`, `${p1Burned[1]}`, `${p1Burned[0]}`);
@@ -181,10 +148,39 @@ function compareWarCards() {
     }
 };
 
+function clear() {
+    if (p1War.length === 0) {
+        p1flip.classList.replace(`${p1Flipped}`, 'outline');
+        p2flip.classList.replace(`${p2Flipped}`, 'outline');
+        p1Flipped.pop();
+        p2Flipped.pop();
+        playButton.classList.remove('hidden');
+        clearButton.classList.add('hidden');
+        render();
+    } else {
+        p1flip.classList.replace(`${p1Flipped}`, 'outline');
+        p2flip.classList.replace(`${p2Flipped}`, 'outline');
+        p1warflip.classList.replace(`${p1War}`, 'outline');
+        p2warflip.classList.replace(`${p2War}`, 'outline');
+        p1burn.classList.replace(cardBack, 'outline');
+        p2burn.classList.replace(cardBack, 'outline');
+        p1War.splice(0,p1War.length);
+        p2War.splice(0,p2War.length);
+        p1Flipped.splice(0,p1Flipped.length);
+        p2Flipped.splice(0,p2Flipped.length);
+        p1Burned.splice(0,p1Burned.length);
+        p2Burned.splice(0,p2Burned.length);
+        playButton.classList.remove('hidden');
+        clearButton.classList.add('hidden');
+        warTitle.classList.add('hidden');
+        render();
+    }
+};
+
 function render() {
     // Player 1 card shading
     if (p1Cards.length === 0) {
-        p1deck.classList.replace('back-roger', 'outline');
+        p1deck.classList.replace(cardBack, 'outline');
     }
     if (p1Cards.length > 13) {
         p1deck.classList.replace('outline', 'shadow-light');
@@ -200,7 +196,7 @@ function render() {
     }
     // Player 2 card shading
     if (p2Cards.length === 0) {
-        p2deck.classList.replace('back-roger', 'outline');
+        p2deck.classList.replace(cardBack, 'outline');
     }
     if (p2Cards.length > 13) {
         p2deck.classList.replace('outline', 'shadow-light');
@@ -251,3 +247,8 @@ function lookUp(x) {
 // timeout logic to delay card dealing, flipping
 // card flip animations
 // card flip sounds
+
+// CURRENT ISSUES
+// Cards are not adding up correctly over the course of the game
+// Render is not working correctly adding/removing shadows
+// Shadows currently shaded in bright colors and in increased sizes for visual aid
