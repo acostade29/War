@@ -63,8 +63,8 @@ function dealCards() {
             p2Cards.push(p2Dealt[0]);
         }
     }
-    p1deck.classList.add(cardBack, 'animated', 'bounce');
-    p2deck.classList.add(cardBack, 'animated', 'bounce');
+    p1deck.classList.add(cardBack, 'animated', 'bounceInDown');
+    p2deck.classList.add(cardBack, 'animated', 'bounceInDown');
     dealButton.classList.add('hidden');
     playButton.classList.remove('hidden');
     render();
@@ -119,25 +119,40 @@ function compareCards() {
 };
 
 function war() {
-    war1.classList.remove('hidden');
-    warTitle.classList.remove('hidden');
-    warTitle.classList.add('animated', 'heartBeat');
-    p1burn.classList.add(cardBack, 'W', 'animated', 'slideInDown');
-    p2burn.classList.add(cardBack, 'W', 'animated', 'slideInDown');
+    setTimeout (function() {
+        warTitle.classList.remove('hidden');
+        warTitle.classList.add('animated', 'heartBeat');
+    }, 1000);
+    setTimeout (function() {
+        p1burn.classList.remove('hidden');
+        p1burn.classList.add(cardBack, 'animated', 'slideInDown',);
+        p2burn.classList.remove('hidden');       
+        p2burn.classList.add(cardBack, 'animated', 'slideInDown',);
+        p1warflip.classList.remove('hidden');
+        p2warflip.classList.remove('hidden');
+        p1warflip.classList.add('outline');
+        p2warflip.classList.add('outline');
+    }, 1500);
     if (p1Cards.length) {
         p1Burned = p1Cards.splice(0, 3);
         p1War = p1Cards.splice(0, 1);
         p1Cards.push(p1War[0]);
-        p1warflip.classList.replace('outline', p1War);
-        p1warflip.classList.add('animated', 'slideInLeft');
+        setTimeout (function() {
+            p1warflip.classList.replace('outline', p1War);
+            p1warflip.classList.remove('hidden');
+            p1warflip.classList.add('animated', 'slideInLeft'); 
+        }, 3000);
         checkWin();
     }
     if (p2Cards.length) {
         p2Burned = p2Cards.splice(0, 3);
         p2War = p2Cards.splice(0, 1);
         p2Cards.push(p2War[0]);
-        p2warflip.classList.replace('outline', p2War);
-        p2warflip.classList.add('animated', 'slideInRight');
+        setTimeout (function() {
+            p2warflip.classList.replace('outline', p2War);
+            p2warflip.classList.remove('hidden');
+            p2warflip.classList.add('animated', 'slideInRight'); 
+        }, 3000);
         checkWin();
     }
     playButton.classList.add('hidden');
@@ -199,10 +214,10 @@ function clear() {
     }
     p1flip.classList.remove('slideInLeft');
     p2flip.classList.remove('slideInRight');
-    p1burn.classList.remove('slideInDown');
-    p2burn.classList.remove('slideInDown');
-    p1warflip.classList.remove('slideInLeft');
-    p2warflip.classList.remove('slideInRight');
+    p1burn.classList.remove('slideInDown', 'delay-1s');
+    p2burn.classList.remove('slideInDown', 'delay-1s');
+    p1warflip.classList.remove('slideInLeft', 'delay-2s');
+    p2warflip.classList.remove('slideInRight', 'delay-2s');
     warTitle.classList.remove('heartBeat');
 };
 
