@@ -23,10 +23,10 @@
 
 ### ***Screenshots***
 
-###### Rough Wireframe
-![Rough Wireframe](images/screenshots/wireframe.jpg)
 ###### Pseudocode
 ![Pseudocode](images/screenshots/pseudocode.jpg)
+###### Rough Wireframe
+![Rough Wireframe](images/screenshots/wireframe.jpg)
 ***
 
 ### ***User Experience***

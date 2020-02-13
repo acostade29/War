@@ -29,14 +29,12 @@ const war1 = document.getElementById('war1');
 const war2 = document.getElementById('war2');
 const dealButton = document.getElementById('deal-button');
 const playButton = document.getElementById('play-button');
-const clearButton = document.getElementById('clear-button');
 const againButton = document.getElementById('again-button');
 
 
 /*----- event listeners -----*/
 dealButton.addEventListener('click', dealCards);
 playButton.addEventListener('click', playCards);
-clearButton.addEventListener('click', clear);
 
 
 /*----- functions -----*/
@@ -81,8 +79,8 @@ function playCards() {
         p2flip.classList.replace('outline', p2Flipped);
         p2flip.classList.add('animated', 'slideInRight');
     }
-    playButton.classList.add('hidden');
-    clearButton.classList.remove('hidden');
+    playButton.classList.remove('btn-play');
+    playButton.classList.add('btn-gray');
     compareCards();
 };
 
@@ -90,12 +88,11 @@ function checkWin() {
     if (p1Cards.length === 0) {
         warTitle.classList.remove('hidden');
         warTitle.textContent = "Player Two Wins!"
-        clearButton.classList.add('hidden');
         againButton.classList.remove('hidden');
+        againButton.classList.add('animated', 'rubberBand');
     } else if (p2Cards.length === 0) {
         warTitle.classList.remove('hidden');
         warTitle.textContent = "Player One Wins!"
-        clearButton.classList.add('hidden');
         againButton.classList.remove('hidden');
         againButton.classList.add('animated', 'rubberBand');
     };
@@ -107,11 +104,17 @@ function compareCards() {
         p1Cards.push(`${p2Flipped}`);
         p2Cards.splice(p2Cards.length, 1);
         winHand = 1;
+        setTimeout (function() {
+            clear();
+        }, 1500);
     } else if (lookUp(p1Flipped) < lookUp(p2Flipped)) {
         p2Cards.push(`${p2Flipped}`);
         p2Cards.push(`${p1Flipped}`);
         p1Cards.splice(p1Cards.length, 1);
         winHand = 2;
+        setTimeout (function() {
+            clear();
+        }, 1500);
     } else {
         war();
     }
@@ -125,9 +128,9 @@ function war() {
     }, 1000);
     setTimeout (function() {
         p1burn.classList.remove('hidden');
-        p1burn.classList.add(cardBack, 'animated', 'slideInDown',);
+        p1burn.classList.add(cardBack, 'animated', 'slideInDown');
         p2burn.classList.remove('hidden');       
-        p2burn.classList.add(cardBack, 'animated', 'slideInDown',);
+        p2burn.classList.add(cardBack, 'animated', 'slideInDown');
         p1warflip.classList.remove('hidden');
         p2warflip.classList.remove('hidden');
         p1warflip.classList.add('outline');
@@ -155,7 +158,8 @@ function war() {
         }, 3000);
         checkWin();
     }
-    playButton.classList.add('hidden');
+    playButton.classList.remove('btn-play');
+    playButton.classList.add('btn-gray');
     compareWarCards();
     render();
 };
@@ -169,6 +173,9 @@ function compareWarCards() {
         p1Cards.push(`${p2War[0]}`);
         p2Cards.splice(p2Cards.length - 1, 1);
         winHand = 1;
+        setTimeout (function() {
+            clear();
+        }, 5000);
     } else if (lookUp(p1War) < lookUp(p2War)) {
         p2Cards.push(`${p2Burned[2]}`, `${p2Burned[1]}`, `${p2Burned[0]}`);
         p2Cards.push(`${p2Flipped[0]}`);
@@ -177,6 +184,9 @@ function compareWarCards() {
         p2Cards.push(`${p1War[0]}`);
         p1Cards.splice(p1Cards.length - 1, 1);
         winHand = 2;
+        setTimeout (function() {
+            clear();
+        }, 5000);
     } else {
         console.log("War Again");
         // war();
@@ -187,38 +197,123 @@ function compareWarCards() {
 
 function clear() {
     if (p1War.length === 0) {
-        p1flip.classList.replace(`${p1Flipped}`, 'outline');
-        p2flip.classList.replace(`${p2Flipped}`, 'outline');
-        p1Flipped.pop();
-        p2Flipped.pop();
+        if (winHand === 1) {
+            p2flip.classList.remove('level-four');
+            p2flip.classList.add('level-three');
+            p1flip.classList.add('slideOutLeft', 'faster', 'delay-1s');
+            p2flip.classList.add('slideOutLeft', 'faster');
+        } else if (winHand === 2) {
+            p2flip.classList.add('slideOutRight', 'faster', 'delay-1s');
+            p1flip.classList.add('slideOutRight', 'faster');
+        }
+        setTimeout (function() {
+            p1flip.classList.replace(`${p1Flipped}`, 'outline');
+            p2flip.classList.replace(`${p2Flipped}`, 'outline');
+            p1Flipped.splice(0,p1Flipped.length);
+            p2Flipped.splice(0,p2Flipped.length);
+            p1flip.classList.remove('animated', 'slideInLeft');
+            p2flip.classList.remove('animated', 'slideInRight');
+            // Player 1 Win Class Resets
+            p2flip.classList.remove('level-three');
+            p2flip.classList.add('level-four');
+            p1flip.classList.remove('slideOutLeft', 'faster', 'delay-1s');
+            p2flip.classList.remove('slideOutLeft', 'faster');
+            // Player 2 Win Class Resets
+            p2flip.classList.remove('slideOutRight', 'faster', 'delay-1s');
+            p1flip.classList.remove('slideOutRight', 'faster');
+            // Button Class Resets
+            playButton.classList.remove('btn-gray');
+            playButton.classList.add('btn-play');
+            render();
+        }, 2001);
+    } else if (p1War.length > 0) {
+        if (winHand === 1) {
+            p2flip.classList.remove('level-four');
+            p2flip.classList.add('level-three');
+            p1burn.classList.remove('level-three');
+            p1burn.classList.add('level-four');
+            p1warflip.classList.remove('level-two');
+            p1warflip.classList.add('level-three');
+            p2burn.classList.remove('level-three');
+            p2burn.classList.add('level-one');
+            p2burn.classList.add('slideOutLeft', 'faster');
+            p2flip.classList.add('slideOutLeft', 'faster', 'delay-1s');
+            p2warflip.classList.remove('slideInRight');
+            p2warflip.classList.add('slideOutLeft', 'faster', 'delay-1s');
+            p1flip.classList.add('slideOutLeft', 'faster', 'delay-2s');
+            p1warflip.classList.remove('slideInLeft');
+            p1warflip.classList.add('slideOutLeft', 'faster', 'delay-2s');
+            p1burn.classList.remove('slideInDown');
+            p2burn.classList.remove('slideInDown');
+            p1burn.classList.add('slideOutUp', 'faster', 'delay-3s');
+        } else if (winHand === 2) {
+            p1burn.classList.remove('level-three');
+            p1burn.classList.add('level-one');
+            p2warflip.classList.remove('level-two');
+            p2warflip.classList.add('level-three');
+            p1burn.classList.add('slideOutRight', 'faster');
+            p1flip.classList.add('slideOutRight', 'faster', 'delay-1s');
+            p1warflip.classList.add('slideOutRight', 'faster', 'delay-1s');
+            p2flip.classList.add('slideOutRight', 'faster', 'delay-2s');
+            p2warflip.classList.add('slideOutRight', 'faster', 'delay-2s');
+            p2burn.classList.remove('slideInDown');
+            p1burn.classList.remove('slideInDown');
+            p2burn.classList.add('slideOutUp', 'faster', 'delay-3s');
+        }
+        setTimeout (function() {
+            warTitle.classList.add('hidden');
+        }, 3000);
+        setTimeout (function() {
+            p1warflip.classList.replace(`${p1War}`, 'outline');
+            p2warflip.classList.replace(`${p2War}`, 'outline');
+            p1burn.classList.replace(cardBack, 'outline');
+            p2burn.classList.replace(cardBack, 'outline');
+            p1flip.classList.remove('animated', 'slideInLeft');
+            p2flip.classList.remove('animated', 'slideInRight');
+            p1War.splice(0,p1War.length);
+            p2War.splice(0,p2War.length);
+            p1Burned.splice(0,p1Burned.length);
+            p2Burned.splice(0,p2Burned.length);
+        }, 4000);
         playButton.classList.remove('hidden');
-        clearButton.classList.add('hidden');
-        render();
-    } else {
-        p1flip.classList.replace(`${p1Flipped}`, 'outline');
-        p2flip.classList.replace(`${p2Flipped}`, 'outline');
-        p1warflip.classList.replace(`${p1War}`, 'outline');
-        p2warflip.classList.replace(`${p2War}`, 'outline');
-        p1burn.classList.replace(cardBack, 'outline');
-        p2burn.classList.replace(cardBack, 'outline');
-        p1War.splice(0,p1War.length);
-        p2War.splice(0,p2War.length);
-        p1Flipped.splice(0,p1Flipped.length);
-        p2Flipped.splice(0,p2Flipped.length);
-        p1Burned.splice(0,p1Burned.length);
-        p2Burned.splice(0,p2Burned.length);
-        playButton.classList.remove('hidden');
-        clearButton.classList.add('hidden');
-        warTitle.classList.add('hidden');
-        render();
+        setTimeout (function() {
+            p1flip.classList.replace(`${p1Flipped}`, 'outline');
+            p2flip.classList.replace(`${p2Flipped}`, 'outline');
+            p1Flipped.splice(0,p1Flipped.length);
+            p2Flipped.splice(0,p2Flipped.length);
+            // Player 1 Win Class Resets
+            p2flip.classList.remove('level-three');
+            p2flip.classList.add('level-four');
+            p1burn.classList.remove('level-four');
+            p1burn.classList.add('level-three');
+            p1warflip.classList.remove('level-three');
+            p1warflip.classList.add('level-two');
+            p2burn.classList.remove('level-one');
+            p2burn.classList.add('level-three');
+            p2burn.classList.remove('slideOutLeft', 'faster');
+            p2flip.classList.remove('slideOutLeft', 'faster', 'delay-1s');
+            p2warflip.classList.remove('slideOutLeft', 'faster', 'delay-1s');
+            p1flip.classList.remove('slideOutLeft', 'faster', 'delay-2s');
+            p1warflip.classList.remove('slideOutLeft', 'faster', 'delay-2s');
+            p1burn.classList.remove('slideOutUp', 'faster', 'delay-3s');
+            // Player 2 Win Class Resets
+            p1burn.classList.remove('level-one');
+            p1burn.classList.add('level-three');
+            p1warflip.classList.remove('level-one');
+            p1warflip.classList.add('level-two');
+            p1burn.classList.remove('slideOutRight', 'faster');
+            p1flip.classList.remove('slideOutRight', 'faster', 'delay-1s');
+            p1warflip.classList.remove('slideOutRight', 'faster', 'delay-1s');
+            p2flip.classList.remove('slideOutRight', 'faster', 'delay-2s');
+            p2warflip.classList.remove('slideOutRight', 'faster', 'delay-2s');
+            p2burn.classList.remove('slideOutUp', 'faster', 'delay-3s');
+            // Button Class Resets
+            playButton.classList.remove('btn-gray');
+            playButton.classList.add('btn-play');
+            warTitle.classList.remove('heartBeat');
+            render();
+        }, 4001);
     }
-    p1flip.classList.remove('slideInLeft');
-    p2flip.classList.remove('slideInRight');
-    p1burn.classList.remove('slideInDown', 'delay-1s');
-    p2burn.classList.remove('slideInDown', 'delay-1s');
-    p1warflip.classList.remove('slideInLeft', 'delay-2s');
-    p2warflip.classList.remove('slideInRight', 'delay-2s');
-    warTitle.classList.remove('heartBeat');
 };
 
 function render() {

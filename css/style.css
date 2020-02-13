@@ -6,6 +6,94 @@ body {
   align-items: center;
 }
 
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.btn-deal {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  outline: none;
+}
+
+.btn-deal:hover,
+.btn-deal:active,
+.btn-deal:focus {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-play {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  outline: none;
+}
+
+.btn-play:hover,
+.btn-play:active,
+.btn-play:focus {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-gray {
+  color: #fff;
+  background-color: #b5b5b5;
+  border-color: #ababab;
+  outline: none;
+}
+
+.btn-gray:hover,
+.btn-gray:active,
+.btn-gray:focus {
+  color: #fff;
+  background-color: #9a9a9a;
+  border-color: #858585;
+  cursor: not-allowed;
+  outline: none;
+}
+
+.btn-again {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+  outline: none;
+}
+
+.btn-again:hover,
+ .btn-again:active {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+  cursor: pointer;
+  outline: none;
+}
+
 #wartitle {
   font-family: 'treasure_map_deadhandregular';
   color: rgb(196, 40, 27);
@@ -13,17 +101,27 @@ body {
   margin-bottom: -15px;
 }
 
-#p1deck, #p2deck {
+.level-five {
+  position: relative;
+  z-index: 5;
+}
+
+.level-four{
+  position: relative;
+  z-index: 4;
+}
+
+.level-three {
   position: relative;
   z-index: 3;
 }
 
-#p1flip, #p2flip, #p1burn, #p2burn {
+.level-two {
   position: relative;
   z-index: 2;
 }
 
-#p1war, #p2war {
+.level-one {
   position: relative;
   z-index: 1;
 }
@@ -81,6 +179,8 @@ body {
     box-shadow: 7px 7px 8px 0 rgba(41, 41, 41, 0.75); }
   .card.shadow-full {
     box-shadow: 8px 8px 9px 0 rgba(41, 41, 41, 0.75); }
+  .card.shadow-win {
+    box-shadow: 8px 8px 8px 8px rgba(196, 40, 27, 0.75); }
   .card.outline {
     background-image: none;
     background-color: rgba(1, 1, 1, 0); 
