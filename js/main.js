@@ -30,6 +30,11 @@ const war2 = document.getElementById('war2');
 const dealButton = document.getElementById('deal-button');
 const playButton = document.getElementById('play-button');
 const againButton = document.getElementById('again-button');
+const flip = new Audio('../audio/flip.wav');
+const deal = new Audio('../audio/deal.wav');
+const shuffleCards = new Audio('../audio/shuffle.wav');
+const horn = new Audio('../audio/horn.mp3');
+const bell = new Audio('..audio/bell.mp3')
 
 
 /*----- event listeners -----*/
@@ -50,6 +55,7 @@ function shuffle() {
 };
 
 function dealCards() {
+    shuffleCards.play();
     shuffle();
     if (cards.length) {
         for (let i = 0; i < 26; i++) {
@@ -69,6 +75,10 @@ function dealCards() {
 };
 
 function playCards() {
+    flip.play();
+    setTimeout (function() {
+        flip.play();
+    }, 750);
     if (p1Cards.length > 0 && p2Cards.length > 0) {
         p1Flipped = p1Cards.splice(0, 1);
         p1flip.classList.replace('outline', p1Flipped);
@@ -85,6 +95,7 @@ function playCards() {
 
 function checkWin() {
     if (p1Cards.length === 0 && p2Cards.length === 52) {
+        bell.play();
         warTitle.textContent = "Player Two Wins!"
         warTitle.classList.remove('hidden');
         playButton.classList.add('hidden');
@@ -92,6 +103,7 @@ function checkWin() {
         againButton.classList.remove('hidden');
         againButton.classList.add('animated', 'rubberBand');
     } else if (p2Cards.length === 0 && p1Cards.length === 52) {
+        bell.play();
         warTitle.textContent = "Player One Wins!"
         warTitle.classList.remove('hidden');
         playButton.classList.add('hidden');
@@ -102,6 +114,9 @@ function checkWin() {
 };
 
 function compareCards() {
+    setTimeout (function() {
+        deal.play();
+    }, 1300);
     if (lookUp(p1Flipped) > lookUp(p2Flipped)) {
         p1Cards.push(`${p1Flipped}`);
         p1Cards.push(`${p2Flipped}`);
@@ -125,6 +140,7 @@ function compareCards() {
 };
 
 function war() {
+    horn.play();
     setTimeout (function() {
         warTitle.classList.remove('hidden');
         warTitle.classList.add('animated', 'heartBeat');
@@ -167,6 +183,9 @@ function war() {
 };
 
 function compareWarCards() {
+    setTimeout (function() {
+        flip.play();
+    }, 3000);
     if (lookUp(p1War) > lookUp(p2War)) {
         p1Cards.push(`${p1Burned[2]}`, `${p1Burned[1]}`, `${p1Burned[0]}`);
         p1Cards.push(`${p1Flipped[0]}`);
@@ -196,6 +215,18 @@ function compareWarCards() {
     }
     checkWin();
     render();
+    setTimeout (function() {
+        deal.play();
+    }, 4500);
+    setTimeout (function() {
+        deal.play();
+    }, 5500);
+    setTimeout (function() {
+        deal.play();
+    }, 6500);
+    setTimeout (function() {
+        deal.play();
+    }, 7500);
 };
 
 function clear() {
@@ -379,6 +410,7 @@ function render() {
         p2deck.classList.add('shadow-full');
         p2deck.classList.remove('shadow-dark');
     };
+    checkWin();
 };
 
 function lookUp(x) {
@@ -412,7 +444,7 @@ function lookUp(x) {
 };
 
 // TO DO
-// timeout logic to delay card dealing, flipping
+// check animations when Player One wins a War
 // card flip sounds
 
 // CURRENT ISSUES
