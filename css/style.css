@@ -38,8 +38,8 @@ nav {
 
 .btn-deal {
   color: #fff;
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: rgb(196, 40, 27);
+  border-color: rgb(142, 29, 19);
   outline: none;
 }
 
@@ -47,16 +47,16 @@ nav {
 .btn-deal:active,
 .btn-deal:focus {
   color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
+  background-color: rgb(199, 65, 53);
+  border-color: rgb(142, 29, 19);
   cursor: pointer;
   outline: none;
 }
 
 .btn-play {
   color: #fff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #606060;
+  border-color: #373737;
   outline: none;
 }
 
@@ -64,24 +64,24 @@ nav {
 .btn-play:active,
 .btn-play:focus {
   color: #fff;
-  background-color: #449d44;
-  border-color: #398439;
+  background-color: rgb(199, 65, 53);
+  border-color: rgb(142, 29, 19);
   cursor: pointer;
   outline: none;
 }
 
 .btn-again {
   color: #fff;
-  background-color: #d9534f;
-  border-color: #d43f3a;
+  background-color: rgb(196, 40, 27);
+  border-color: rgb(142, 29, 19);
   outline: none;
 }
 
 .btn-again:hover,
  .btn-again:active {
   color: #fff;
-  background-color: #c9302c;
-  border-color: #ac2925;
+  background-color: rgb(199, 65, 53);
+  border-color: rgb(142, 29, 19);
   cursor: pointer;
   outline: none;
 }
@@ -171,8 +171,6 @@ nav {
     box-shadow: 7px 7px 8px 0 rgba(41, 41, 41, 0.75); }
   .card.shadow-full {
     box-shadow: 8px 8px 9px 0 rgba(41, 41, 41, 0.75); }
-  .card.shadow-win {
-    box-shadow: 8px 8px 8px 8px rgba(196, 40, 27, 0.75); }
   .card.outline {
     background-image: none;
     background-color: rgba(1, 1, 1, 0); 
