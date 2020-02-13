@@ -50,17 +50,15 @@
 * ##### As a user, I should know when I have won/lost the game.
 ***
 
-### ***Next Steps***
+### ***Future Updates***
 
-* ##### ~~Create a 'Play Again' button~~
-* ##### Create a win counter for each player
-* ##### Allow the user to choose their deck image
-* ##### Toggle music
-* ##### Toggle flip sounds
-* ##### Toggle background
-* ##### ~~Create a 'card flip' animation~~
-* ##### ~~Add 'card flip' sound effects~~
-* ##### Scale for mobile
+- [x] ~~Create a 'Play Again' button~~
+- [ ] Create a win counter for each player
+- [ ] Allow the user to choose their deck image
+- [ ] Toggle music, flip sounds, and background
+- [x] ~~Create a 'card flip' animation~~
+- [x] ~~Add 'card flip' sound effects~~
+- [ ] Scale for mobile
 ***
 
 ### ***Credits***
