@@ -304,4 +304,4 @@ function lookUp(x) {
 // card flip sounds
 
 // CURRENT ISSUES
-// Cards are not adding up correctly over the course of the game due to DOUBLE war occuring.
+// Cards are not adding up correctly over the course of the game due to DOUBLE war occuring.git 
