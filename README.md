@@ -27,6 +27,12 @@
 ![Pseudocode](images/screenshots/pseudocode.jpg)
 ###### Rough Wireframe
 ![Rough Wireframe](images/screenshots/wireframe.jpg)
+###### Final Product
+![Final Product](images/screenshots/game.jpg)
+###### War!
+![War!](images/screenshots/war.jpg)
+###### End of Game
+![War!](images/screenshots/endgame.jpg)
 ***
 
 ### ***User Experience***
@@ -36,9 +42,9 @@
 #### User Story #2
 ##### Lucy wants to play a card game with her friend.  She want's one that is easy to learn and easy to play.
 #### Minimum Viable Product
-* ##### As a user, I should be able to click the 'Deal' button and the cards flip over.
+* ##### As a user, I should be able to click the 'Flip' button and the hand take place.
 * ##### As a user, I should see the cards flipped, then it be obvious who won the hand.
-* ##### As a user, I should be able to tell who is winning the game.
+* ##### As a user, I should be able to tell who is winning the game (shading).
 * ##### As a user, I should know when I have won/lost the game.
 ***
 
@@ -47,8 +53,12 @@
 * ##### ~~Create a 'Play Again' button~~
 * ##### Create a win counter for each player
 * ##### Allow the user to choose their deck image
+* ##### Toggle music
+* ##### Toggle flip sounds
+* ##### Toggle background
 * ##### ~~Create a 'card flip' animation~~
-* ##### Add 'card flip' sound effects
+* ##### ~~Add 'card flip' sound effects~~
+* ##### Scale for mobile
 ***
 
 ### ***Credits***

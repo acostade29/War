@@ -34,7 +34,7 @@ const flip = new Audio('../audio/flip.wav');
 const deal = new Audio('../audio/deal.wav');
 const shuffleCards = new Audio('../audio/shuffle.wav');
 const horn = new Audio('../audio/horn.mp3');
-const bell = new Audio('..audio/bell.mp3')
+const bell = new Audio('../audio/bell.mp3')
 
 
 /*----- event listeners -----*/
@@ -76,9 +76,6 @@ function dealCards() {
 
 function playCards() {
     flip.play();
-    setTimeout (function() {
-        flip.play();
-    }, 750);
     if (p1Cards.length > 0 && p2Cards.length > 0) {
         p1Flipped = p1Cards.splice(0, 1);
         p1flip.classList.replace('outline', p1Flipped);
@@ -94,7 +91,7 @@ function playCards() {
 };
 
 function checkWin() {
-    if (p1Cards.length === 0 && p2Cards.length === 52) {
+    if (p1Cards.length === 0 && (p2Cards.length + p2Burned.length + p2Flipped.length + p2War.length) === 52) {
         bell.play();
         warTitle.textContent = "Player Two Wins!"
         warTitle.classList.remove('hidden');
@@ -102,7 +99,7 @@ function checkWin() {
         p1deck.classList.replace(cardBack, 'outline');
         againButton.classList.remove('hidden');
         againButton.classList.add('animated', 'rubberBand');
-    } else if (p2Cards.length === 0 && p1Cards.length === 52) {
+    } else if (p2Cards.length === 0 && (p1Cards.length + p1Burned.length + p1Flipped.length + p1War.length) === 52) {
         bell.play();
         warTitle.textContent = "Player One Wins!"
         warTitle.classList.remove('hidden');
@@ -118,6 +115,7 @@ function compareCards() {
         deal.play();
     }, 1300);
     if (lookUp(p1Flipped) > lookUp(p2Flipped)) {
+        checkWin();
         p1Cards.push(`${p1Flipped}`);
         p1Cards.push(`${p2Flipped}`);
         p2Cards.splice(p2Cards.length, 1);
@@ -126,6 +124,7 @@ function compareCards() {
             clear();
         }, 1500);
     } else if (lookUp(p1Flipped) < lookUp(p2Flipped)) {
+        checkWin();
         p2Cards.push(`${p2Flipped}`);
         p2Cards.push(`${p1Flipped}`);
         p1Cards.splice(p1Cards.length, 1);
@@ -134,6 +133,7 @@ function compareCards() {
             clear();
         }, 1500);
     } else {
+        checkWin();
         war();
     }
     checkWin();
@@ -157,7 +157,9 @@ function war() {
     }, 1500);
     if (p1Cards.length) {
         p1Burned = p1Cards.splice(0, 3);
+        checkWin();
         p1War = p1Cards.splice(0, 1);
+        checkWin();
         p1Cards.push(p1War[0]);
         setTimeout (function() {
             p1warflip.classList.replace('outline', `${p1War[0]}`);
@@ -168,7 +170,9 @@ function war() {
     }
     if (p2Cards.length) {
         p2Burned = p2Cards.splice(0, 3);
+        checkWin();
         p2War = p2Cards.splice(0, 1);
+        checkWin();
         p2Cards.push(p2War[0]);
         setTimeout (function() {
             p2warflip.classList.replace('outline', `${p2War[0]}`);
@@ -445,7 +449,6 @@ function lookUp(x) {
 
 // TO DO
 // check animations when Player One wins a War
-// card flip sounds
 
 // CURRENT ISSUES
-// Cards are not adding up correctly over the course of the game due to DOUBLE war occuring.
+// Cards are not adding up correctly over the course of the game due to DOUBLE war occuring. Total equals 44.

@@ -9,10 +9,11 @@ body {
 nav {
   display: flex;
   justify-content: center;
-  height: 5vh;
+  height: 7vh;
 }
 
 .btn {
+  height: 4vh;
   display: inline-block;
   padding: 6px 12px;
   margin-left: 15px;
