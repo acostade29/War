@@ -28,11 +28,11 @@
 ###### Rough Wireframe
 ![Rough Wireframe](images/screenshots/wireframe.jpg)
 ###### Final Product
-![Final Product](images/screenshots/game.jpg)
+![Final Product](images/screenshots/game.png)
 ###### War!
-![War!](images/screenshots/war.jpg)
+![War!](images/screenshots/war.png)
 ###### End of Game
-![War!](images/screenshots/endgame.jpg)
+![War!](images/screenshots/endgame.png)
 ***
 
 ### ***User Experience***
