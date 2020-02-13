@@ -12,7 +12,9 @@
 
 ### ***Technologies Used***
 
-##### JavaScript, HTML, CSS
+* ##### JavaScript
+* ##### HTML
+* ##### CSS
 ***
 
 ### ***Getting Started***
