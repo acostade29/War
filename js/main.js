@@ -446,9 +446,3 @@ function lookUp(x) {
         return 2;
     }
 };
-
-// TO DO
-// check animations when Player One wins a War
-
-// CURRENT ISSUES
-// Cards are not adding up correctly over the course of the game due to DOUBLE war occuring. Total equals 44.

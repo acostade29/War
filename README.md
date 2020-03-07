@@ -3,6 +3,7 @@
 ### Date: 2/14/2020
 
 #### By: Michael Lackey
+#### [GitHub](https://github.com/mlackey9601) | [LinkedIn](https://www.linkedin.com/in/michaelglackey/)
 ***
 
 ### ***Description***
@@ -43,29 +44,27 @@
 ##### Tom read online that 'War' is one of the best games to play at a Casino because of it's better odds against the dealer.  He wants to practice online before his big trip to Las Vegas.
 #### User Story #2
 ##### Lucy wants to play a card game with her friend.  She want's one that is easy to learn and easy to play.
-#### Minimum Viable Product
-* ##### As a user, I should be able to click the 'Flip' button and the hand take place.
-* ##### As a user, I should see the cards flipped, then it be obvious who won the hand.
-* ##### As a user, I should be able to tell who is winning the game (shading).
-* ##### As a user, I should know when I have won/lost the game.
+#### As a user...
+* ##### I should be able to click the 'Flip' button and the hand take place.
+* ##### I should see the cards flipped, then it be obvious who won the hand.
+* ##### I should be able to tell who is winning the game (shading).
+* ##### I should know when I have won/lost the game.
 ***
 
 ### ***Future Updates***
 
 - [x] ~~Create a 'Play Again' button~~
+- [x] ~~Create a 'card flip' animation~~
+- [x] ~~Add 'card flip' sound effects~~
 - [ ] Create a win counter for each player
 - [ ] Allow the user to choose their deck image
 - [ ] Toggle music, flip sounds, and background
-- [x] ~~Create a 'card flip' animation~~
-- [x] ~~Add 'card flip' sound effects~~
 - [ ] Scale for mobile
 ***
 
 ### ***Credits***
   
 ##### Black Felt Background - [hipwallpaper.com](https://hipwallpaper.com/)
-
-<!-- ##### Elf Card Back - [Dustin Panzino, Inkwell Illustrations](https://inkwellillustrations.com) -->
 
 ##### Pirate Card Back - [vippng.com](http://vippng.com)
 
