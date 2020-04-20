@@ -27,10 +27,6 @@
 
 ### ***Screenshots***
 
-###### Pseudocode
-![Pseudocode](images/screenshots/pseudocode.jpg)
-###### Rough Wireframe
-![Rough Wireframe](images/screenshots/wireframe.jpg)
 ###### Final Product
 ![Final Product](images/screenshots/game.png)
 ###### War!
