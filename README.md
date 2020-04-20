@@ -1,9 +1,9 @@
-# **"War"**
+# **War**
 
 ### Date: 2/14/2020
 
 #### By: Michael Lackey
-#### [GitHub](https://github.com/mlackey9601) | [LinkedIn](https://www.linkedin.com/in/michaelglackey/)
+#### [Website](https://michaellackey.com/) | [GitHub](https://github.com/mlackey9601) | [LinkedIn](https://www.linkedin.com/in/michaelglackey/) | [GA Profile](https://profiles.generalassemb.ly/michaellackey)
 ***
 
 ### ***Description***
@@ -13,15 +13,16 @@
 
 ### ***Technologies Used***
 
-* ##### JavaScript
+* ##### Chajr 1.1.0
 * ##### HTML
 * ##### CSS
+* ##### JavaScript
 ***
 
 ### ***Getting Started***
 
-##### Each player starts with half of the deck (26 cards). Begin each hand by hitting the 'Deal' button.  The player with the highest card wins the hand and is awarded the other players card.  In the event of a tie, 3 additional cards are burned and a 4th is flipped.  These cards are then evaluated and the player with the highest card wins *all* of the played cards.  The game ends when one player has all 52 cards in the deck.
-##### The project can be viewed [here](https://mlackey9601.github.io/War/).
+##### Each player starts with half of the deck (26 cards). Begin each hand by hitting the 'Flip' button.  The player with the highest card wins the hand and is awarded the other players card.  In the event of a tie, 3 additional cards are burned and a 4th is flipped.  These cards are then evaluated and the player with the highest card wins *all* of the played cards.  The game ends when one player has all 52 cards in the deck.
+##### The project was deployed on GitHub Pages and can be viewed [here](https://mlackey9601.github.io/War/).
 ***
 
 ### ***Screenshots***
@@ -35,20 +36,7 @@
 ###### War!
 ![War!](images/screenshots/war.png)
 ###### End of Game
-![War!](images/screenshots/endgame.png)
-***
-
-### ***User Experience***
-
-#### User Story #1
-##### Tom read online that 'War' is one of the best games to play at a Casino because of it's better odds against the dealer.  He wants to practice online before his big trip to Las Vegas.
-#### User Story #2
-##### Lucy wants to play a card game with her friend.  She want's one that is easy to learn and easy to play.
-#### As a user...
-* ##### I should be able to click the 'Flip' button and the hand take place.
-* ##### I should see the cards flipped, then it be obvious who won the hand.
-* ##### I should be able to tell who is winning the game (shading).
-* ##### I should know when I have won/lost the game.
+![End of Game](images/screenshots/endgame.png)
 ***
 
 ### ***Future Updates***
@@ -64,13 +52,15 @@
 
 ### ***Credits***
   
-##### Black Felt Background - [hipwallpaper.com](https://hipwallpaper.com/)
+##### App Scaffolding: [Chajr](https://github.com/davidstinson/chajr)
 
-##### Pirate Card Back - [vippng.com](http://vippng.com)
+##### Black Felt Background: [hipwallpaper.com](https://hipwallpaper.com/)
 
-##### Pirate Font - [free-fonts.com](https://www.free-fonts.com/)
+##### Pirate Card Back: [vippng.com](http://vippng.com)
 
-##### Animations - [Animate.css](https://daneden.github.io/animate.css/)
+##### Pirate Font: [free-fonts.com](https://www.free-fonts.com/)
 
-##### Button Styling - [Bootstrap](https://getbootstrap.com/)
+##### Animations: [Animate.css](https://daneden.github.io/animate.css/)
+
+##### Button Styling: [Bootstrap](https://getbootstrap.com/)
 ***
