@@ -29,8 +29,10 @@
 
 ###### Final Product
 ![Final Product](images/screenshots/game.png)
+
 ###### War!
 ![War!](images/screenshots/war.png)
+
 ###### End of Game
 ![End of Game](images/screenshots/endgame.png)
 ***
