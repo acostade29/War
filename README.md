@@ -1,4 +1,4 @@
-# **War**
+![War!](images/banner.png)
 
 ### Date: 2/14/2020
 
