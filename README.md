@@ -27,9 +27,6 @@
 
 ### ***Screenshots***
 
-###### Final Product
-![Final Product](images/screenshots/game.png)
-
 ###### War!
 ![War!](images/screenshots/war.png)
 
