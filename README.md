@@ -12,11 +12,10 @@
 ***
 
 ### ***Technologies Used***
+![Technologies Used](images/tech-banner.png)
 
-* ##### Chajr 1.1.0
-* ##### HTML
-* ##### CSS
-* ##### JavaScript
+##### ***Additional Technologies***
+* ###### Chajr 1.1.0
 ***
 
 ### ***Getting Started***
@@ -47,7 +46,7 @@
 
 ### ***Credits***
   
-##### App Scaffolding: [Chajr](https://github.com/davidstinson/chajr)
+##### App Scaffolding: [Chajr 1.1.0](https://github.com/davidstinson/chajr)
 
 ##### Black Felt Background: [hipwallpaper.com](https://hipwallpaper.com/)
 
